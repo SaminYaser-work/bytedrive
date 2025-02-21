@@ -17,19 +17,19 @@ import {
 import { useStore } from "@/lib/store";
 import { useRouter } from "next/navigation";
 
-export default function FileBrowser({ currentItems, currentPath }) {
+export default function FileBrowser({ currentItems }) {
     const fileLayout = useStore((state) => state.fileLayout);
 
     const Browser = fileLayout === "grid" ? GridBrowser : TableBrowser;
 
     return (
         <ScrollArea className="flex-1 p-6">
-            <Browser currentItems={currentItems} currentPath={currentPath} />
+            <Browser currentItems={currentItems} />
         </ScrollArea>
     );
 }
 
-function TableBrowser({ currentItems, currentPath }) {
+function TableBrowser({ currentItems }) {
     const router = useRouter();
 
     return (
@@ -88,7 +88,7 @@ function TableBrowser({ currentItems, currentPath }) {
     );
 }
 
-function GridBrowser({ currentItems, currentPath }) {
+function GridBrowser({ currentItems }) {
     const router = useRouter();
 
     return (
