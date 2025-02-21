@@ -1,6 +1,7 @@
 # ByteDrive
 
 **TODO**:
+- [x] Breadcrumbs
 - [] Authentication & Login Page
 - [] Actual DB
 - [] File upload

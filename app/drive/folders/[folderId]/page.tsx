@@ -1,6 +1,6 @@
 /** @format */
 
-import FileBrowser from "@/components/file-browser";
+import { MainWindow } from "@/components/main-window";
 import { getFolderContents, getPathToFolder } from "@/lib/files";
 
 export default async function Page({
@@ -8,12 +8,10 @@ export default async function Page({
 }: {
     params: { folderId: string };
 }) {
-    const { folderId } = params;
+    const { folderId } = await params;
 
     const currentItems = getFolderContents(folderId);
     const currentPath = getPathToFolder(folderId);
 
-    return (
-        <FileBrowser currentItems={currentItems} currentPath={currentPath} />
-    );
+    return <MainWindow currentItems={currentItems} currentPath={currentPath} />;
 }

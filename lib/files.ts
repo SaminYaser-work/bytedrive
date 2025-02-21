@@ -14,12 +14,12 @@ export function findFolder(id: string): Folder | undefined {
     return folders.find((folder) => folder.id === id);
 }
 
-export function getPathToFolder(id: string): string[] {
-    const path: string[] = [];
+export function getPathToFolder(id: string): Folder[] {
+    const path = [];
     let currentFolder = findFolder(id);
 
     while (currentFolder) {
-        path.unshift(currentFolder.name);
+        path.unshift(currentFolder);
         currentFolder = currentFolder.parentId
             ? findFolder(currentFolder.parentId)
             : undefined;
