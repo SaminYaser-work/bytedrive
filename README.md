@@ -2,8 +2,8 @@
 
 **TODO**:
 - [x] Breadcrumbs
-- [] Authentication & Login Page
 - [] Actual DB
+- [] Authentication & Login Page
 - [] File upload
 - [] File rename, delete, move, copy
 - [] File star/unstar

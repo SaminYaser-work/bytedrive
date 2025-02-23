@@ -2,6 +2,7 @@
 
 import { MainWindow } from "@/components/main-window";
 import { getFolderContents, getPathToFolder } from "@/lib/files";
+import { redirect } from "next/navigation";
 
 export default async function Page({
     params,
@@ -10,8 +11,12 @@ export default async function Page({
 }) {
     const { folderId } = await params;
 
-    const currentItems = getFolderContents(folderId);
-    const currentPath = getPathToFolder(folderId);
+    if (folderId === "root") {
+        redirect("/drive/my-drive");
+    }
 
-    return <MainWindow currentItems={currentItems} currentPath={currentPath} />;
+    const currentItems = await getFolderContents(folderId);
+    const currentPath = await getPathToFolder(folderId);
+
+    return <MainWindow items={currentItems} paths={currentPath} />;
 }
